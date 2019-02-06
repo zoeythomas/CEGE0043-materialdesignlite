@@ -1,8 +1,8 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "My first application",
-  "short_name": "My first application",
+  "name": "ucestz1 app",
+  "short_name": "ucestz1 app",
   "version": "fulltemplate",
   "description": "Hello World sample application that responds to the deviceready event.",
   "author": "PhoneGap Team",
