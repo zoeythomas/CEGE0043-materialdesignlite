@@ -17,4 +17,6 @@ function addPointLinePoly() {
         color: 'red',
         fillColor: '#f03',
     }).addTo(mymap).bindPopup("I am a polygon.");
+    mymap.setView([51.505, -0.09], 13);
 }
+
