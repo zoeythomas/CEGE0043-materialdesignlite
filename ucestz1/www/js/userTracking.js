@@ -12,12 +12,13 @@ if (userMarker){
 mymap.removeLayer(userMarker)};
 userMarker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
 getDistance();
+getDistanceFromPoint(position);
 }
 
 function getDistance() {
 alert('getting distance');
 // getDistanceFromPoint is the function called once the distance has been found
-navigator.geolocation.getCurrentPosition(getDistanceFromPoint);
+navigator.geolocation.getCurrentPosition(getDistanceFromMultiplePoints);
 }
 
 function getDistanceFromPoint(position) {
@@ -47,4 +48,19 @@ dist = (subAngle/360) * 2 * Math.PI * 3956; // ((subtended angle in degrees)/360
 if (unit=="K") { dist = dist * 1.609344 ;} // convert miles to km
 if (unit=="N") { dist = dist * 0.8684 ;} // convert miles to nautical miles
 return dist;
+}
+
+function getDistanceFromMultiplePoints(position) {
+var minDistance = 100000000000;
+var closestQuake = "";
+for(var i = 0; i < earthquakes.features.length; i++) {
+var obj = earthquakes.features[i];
+var distance = calculateDistance(position.coords.latitude,
+position.coords.longitude,obj.geometry.coordinates[0], obj.geometry.coordinates[1], 'K');
+if (distance < minDistance){
+minDistance = distance;
+closestQuake = obj.properties.place;
+}
+}
+alert("Earthquake: " + closestQuake + " is distance " + minDistance + "away");
 }
