@@ -10,7 +10,8 @@ var userMarker
 function showPosition(position) {
 if (userMarker){
 mymap.removeLayer(userMarker)};
-userMarker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap)
+userMarker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
+getDistance();
 }
 
 function getDistance() {
@@ -26,7 +27,9 @@ var lat = 51.524616;
 var lng = -0.13818;
 // return the distance in kilometers
 var distance = calculateDistance(position.coords.latitude, position.coords.longitude, lat,lng, 'K');
-document.getElementById('showDistance').innerHTML = "Distance: " + distance;
+if(distance<1){
+	alert('You are within 1000m!');
+}
 }
 
 function calculateDistance(lat1, lon1, lat2, lon2, unit) {
