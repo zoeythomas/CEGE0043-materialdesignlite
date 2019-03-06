@@ -8,6 +8,7 @@ var doc = parser.parseFromString(xhr.responseText, "application/xml");
 httpPortNumber= doc.getElementsByTagName("node-port-http").item(0).textContent;
 httpsPortNumber= doc.getElementsByTagName("node-port-https").item(0).textContent;
 alert("Port : " + httpPortNumber);
+//trackandCircle(); 想要get port number 就在这里call trackandCircle
 });
 // depending on whether we are in a browser or on a phone
 // the location of the config file is different
