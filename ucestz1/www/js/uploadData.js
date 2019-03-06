@@ -1,9 +1,6 @@
-var name = document.getElementById("name").value;
-var surname = document.getElementById("surname").value;
-var module = document.getElementById("module").value;
-var postString = "name="+name +"&surname="+surname+"&module="+module;
-
 function startDataUpload() {
+
+	//get the textbox values
 var name = document.getElementById("name").value;
 var surname = document.getElementById("surname").value;
 var module = document.getElementById("module").value;
@@ -41,8 +38,6 @@ processData(postString);
 }
 
 var client; // the global variable that holds the request
-
-
 function processData(postString) {
 client = new XMLHttpRequest();
 postString = postString + "&port_id=" + httpPortNumber;
