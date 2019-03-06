@@ -7,35 +7,33 @@ var module = document.getElementById("module").value;
 var postString = "name="+name +"&surname="+surname+"&module="+module;
 alert ("start data upload");
 // now get the checkbox values - separate them with a | so that they can be split later on if necessary
-var checkString = "";
-for (var i = 1;i< 5;i++){
-if (document.getElementById("check"+i).checked === true) {
-checkString = checkString +
-document.getElementById("check"+i).value + "||"
-}
-}
-postString = postString + "&modulelist="+checkString;
+	var checkString = "";
+	for (var i = 1;i< 5;i++){
+		if (document.getElementById("check"+i).checked === true) {
+				checkString = checkString + document.getElementById("check"+i).value + "||"
+		}
+	}
+	postString = postString + "&modulelist="+checkString;
 // now get the radio button values
-if (document.getElementById("morning").checked) {
-postString=postString+"&lecturetime=morning";
-}
-if (document.getElementById("afternoon").checked) {
-postString=postString+"&lecturetime=afternoon";
-}
-// now get the select box values
-var language = document.getElementById("languageselectbox").value;
-postString = postString + "&language="+language;
+	if (document.getElementById("morning").checked) {
+			postString=postString+"&lecturetime=morning";
+	}
+	if (document.getElementById("afternoon").checked) {
+			postString=postString+"&lecturetime=afternoon";
+	}
+	// now get the select box values
+	var language = document.getElementById("languageselectbox").value;
+	postString = postString + "&language="+language;
 
-// now get the geometry values
-var latitude = document.getElementById("latitude").value;
-var longitude = document.getElementById("longitude").value;
-postString = postString + "&latitude=" + latitude + "&longitude=" + longitude;
+    // now get the geometry values
+    var latitude = document.getElementById("latitude").value;
+    var longitude = document.getElementById("longitude").value;
+    postString = postString + "&latitude=" + latitude + "&longitude=" + longitude;
 
-// pop an alert for display
-alert(postString);
-
-processData(postString);
+    alert (postString);
+    processData(postString)  //call the function
 }
+
 
 var client; // the global variable that holds the request
 function processData(postString) {
