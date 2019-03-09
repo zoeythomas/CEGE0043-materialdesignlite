@@ -16,4 +16,6 @@ alert("Port : " + httpPortNumber);
 var configLocation = "res/port.xml";
 xhr.open("get", configLocation, true);
 xhr.send();
+startFormDataLoad();
+alert('startFormDataLoad')
 }
